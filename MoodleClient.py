@@ -87,7 +87,6 @@ class MoodleClient(object):
 
     def logintoken(self):
     	login = self.path+'login/index.php'
-        resp = self.session.get(login,proxies=self.proxy)
         soup = BeautifulSoup(resp.text,'html.parser')
         logintoken = soup.find('input',attrs={'name':'logintoken'})['value']
         return logintoken
